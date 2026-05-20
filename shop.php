@@ -46,139 +46,490 @@ $result = $stmt->get_result();
     <title>Car spare parts shop</title>
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <style>
-        body{
-            font-family: Arial,sans-serif;
-            margin:0;
-            padding:0;
-            background-color:black;
-        }
-        .ig{
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://i.pinimg.com/736x/db/d3/b1/dbd3b1e13599dbaf83e0d88b4a35367c.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: brightness(1);
-            z-index: -1;
-        }
-        .content{
-            position: relative;
-            z-index: 10;
-        }
 
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        h1,h2{
-            text-align:center;
-            margin:10px 0;
-            color:#ff6600;
-        }
-        .head{
-            background:#ff6600;
-            padding:15px;
-            display:flex;
-            justify-content:center;
-            gap:30px;
-        }
-        .head h3{
-            margin: 0;
-            color:black;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .head h3:hover{
-            color: white;
-        }
-        .head a{
-            color:black;
-            text-decoration:none;
-            font-weight:bold;
-        }
-        .head a:hover{
-            color:white;
-        }
-        form{
-            display:flex;
-            justify-content:center;
-            gap:10px;
-            margin:20px 0;
-            flex-wrap:wrap;
-        }
-        form input,form select,form button{
-            padding:8px 12px;
-            font-size:16px;
-        }
-        form button{
-            background:#ff6600;
-            color:white;
-            border:none;
-            cursor:pointer;
-            transition:background 0.3s;
-        }
-        form button:hover{
-            background: green;
-        }
-        .grid{
-            display:grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap:20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.parts {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+/* Body */
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#0f172a;
+
+    color:#f8fafc;
+
+    overflow-x:hidden;
 }
 
-.parts:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+/* Background Image */
+.ig{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,0.82),rgba(0,0,0,0.88)),
+    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    z-index:-1;
 }
 
-.parts img {
-    max-width: 100%;
-    height: 150px;
-    object-fit: contain;
-    margin-bottom: 10px;
+/* Content */
+.content{
+
+    position:relative;
+
+    z-index:10;
 }
 
-.parts ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-    text-align: left;
+/* Main Heading */
+h1{
+
+    text-align:center;
+
+    padding:30px;
+
+    font-size:46px;
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    90deg,
+    rgba(0,0,0,0.88),
+    rgba(15,23,42,0.88)
+    );
+
+    border-bottom:2px solid #d4af37;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.45);
 }
 
-.parts ul li {
-    margin-bottom: 5px;
+/* Navbar */
+.head{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:35px;
+
+    padding:18px;
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.08);
 }
 
-.order-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.3s;
+/* Navbar Items */
+.head h3{
+
+    transition:0.3s ease;
 }
 
-.order-btn:hover {
-    background: #218838;
+.head h3:hover{
+
+    transform:translateY(-4px);
 }
 
-    </style>
+/* Navbar Icons */
+.head i{
+
+    color:#d4af37;
+
+    margin-right:8px;
+}
+
+/* Navbar Links */
+.head a{
+
+    text-decoration:none;
+
+    color:#f8fafc;
+
+    font-size:17px;
+    font-weight:600;
+
+    transition:0.3s ease;
+}
+
+/* Navbar Hover */
+.head a:hover{
+
+    color:#facc15;
+}
+
+/* Filter Form */
+form{
+
+    width:92%;
+    max-width:1100px;
+
+    margin:35px auto;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,0.06);
+
+    backdrop-filter:blur(12px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* Inputs */
+form input,
+form select{
+
+    padding:14px 18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    font-size:15px;
+
+    min-width:180px;
+}
+
+/* Placeholder */
+form input::placeholder{
+
+    color:#d1d5db;
+}
+
+/* Select Option */
+form select option{
+
+    color:black;
+}
+
+/* Filter Button */
+form button{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #d4af37,
+    #facc15
+    );
+
+    color:black;
+
+    font-size:16px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 8px 25px rgba(212,175,55,0.35);
+}
+
+/* Button Hover */
+form button:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.03);
+
+    background:
+    linear-gradient(
+    135deg,
+    #facc15,
+    #d4af37
+    );
+}
+
+/* Category Heading */
+h2{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    font-size:34px;
+
+    color:#facc15;
+
+    letter-spacing:1px;
+}
+
+/* Product Grid */
+.grid{
+
+    width:92%;
+
+    max-width:1300px;
+
+    margin:40px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+}
+
+/* Product Card */
+.parts{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,0.07);
+
+    backdrop-filter:blur(14px);
+
+    border-radius:24px;
+
+    padding:22px;
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,0.35),
+    0 0 18px rgba(212,175,55,0.05);
+
+    transition:0.45s ease;
+}
+
+/* Shine Effect */
+.parts::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+    left:-100%;
+
+    width:200%;
+    height:200%;
+
+    background:
+    linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.08),
+    transparent
+    );
+
+    transform:rotate(25deg);
+
+    transition:0.9s;
+}
+
+/* Shine Hover */
+.parts:hover::before{
+
+    top:100%;
+    left:100%;
+}
+
+/* Card Hover */
+.parts:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+    border-color:#d4af37;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.45),
+    0 0 28px rgba(212,175,55,0.22);
+}
+
+/* Product Image */
+.parts img{
+
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    margin-bottom:18px;
+
+    transition:0.4s ease;
+}
+
+/* Image Hover */
+.parts:hover img{
+
+    transform:scale(1.04);
+}
+
+/* Product List */
+.parts ul{
+
+    list-style:none;
+}
+
+/* Product Items */
+.parts li{
+
+    margin-bottom:10px;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    color:#e5e7eb;
+}
+
+/* Strong Text */
+.parts strong{
+
+    color:#facc15;
+}
+
+/* Order Button */
+.order-btn{
+
+    display:block;
+
+    margin-top:20px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+    135deg,
+    #d4af37,
+    #facc15
+    );
+
+    color:black;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    font-size:16px;
+    font-weight:700;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 8px 25px rgba(212,175,55,0.35);
+}
+
+/* Button Hover */
+.order-btn:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.03);
+
+    background:
+    linear-gradient(
+    135deg,
+    #facc15,
+    #d4af37
+    );
+
+    box-shadow:
+    0 12px 35px rgba(250,204,21,0.4);
+}
+
+/* Mobile Responsive */
+@media(max-width:768px){
+
+    .head{
+
+        flex-direction:column;
+
+        gap:18px;
+    }
+
+    h1{
+
+        font-size:30px;
+    }
+
+    h2{
+
+        font-size:24px;
+    }
+
+    form{
+
+        padding:20px;
+    }
+
+    form input,
+    form select,
+    form button{
+
+        width:100%;
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
 </head>
 <body>
 <div class="ig"></div>
@@ -200,9 +551,28 @@ $result = $stmt->get_result();
     </option>
 <?php endforeach; ?>
 </select>
-
-<input type="text" name="name" placeholder="Name" value="<?= htmlspecialchars($name) ?>">
-<input type="text" name="model" placeholder="Model" value="<?= htmlspecialchars($model) ?>">
+<select name="name">
+    <option value="">All Names</option>
+    <?php
+    $names_result = $conn->query("SELECT DISTINCT name FROM $category");
+    while($name_row = $names_result->fetch_assoc()):
+    ?>
+    <option value="<?= htmlspecialchars($name_row['name']) ?>" <?= $name==$name_row['name']?'selected':'' ?>>
+        <?= htmlspecialchars($name_row['name']) ?>
+    </option>
+    <?php endwhile; ?>
+    </select>
+<select name="model">
+    <option value="">All Models</option>
+    <?php
+    $models_result = $conn->query("SELECT DISTINCT model FROM $category");
+    while($model_row = $models_result->fetch_assoc()):
+    ?>
+    <option value="<?= htmlspecialchars($model_row['model']) ?>" <?= $model==$model_row['model']?'selected':'' ?>>
+        <?= htmlspecialchars($model_row['model']) ?>
+    </option>
+    <?php endwhile; ?>
+    </select>
 <button type="submit">Filter</button>
 </form>
 
