@@ -71,116 +71,362 @@ $conn->close();
 
 <style>
 
-body {
-    font-family: Arial, sans-serif;
-    background: white;
-    margin: 0;
-}
-.ig{
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/023/980/938/small/close-up-red-luxury-car-on-black-background-with-copy-space-photo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: brightness(1);
-            z-index: -1;
-        }
-        .content{
-            position: relative;
-            z-index: 10;
-        }
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
-h1 {
-    text-align: center;
-    background: black;
-    color: #ff6600;
-    padding: 15px;
-    margin: 0;
-}
-.header-menu {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap:wrap;
-    text-align:center;
-    background: #ff6600;
-    padding: 15px 0;
-}
-.header-menu h3{
-    margin: 0;
-    color:white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.header-menu h3:hover{
-    color:black;
-}
-.header-menu a {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-}
-.header-menu a:hover {
-    color: black;
-}
-.container {
-    max-width: 450px;
-    width:90%;
-    margin: 40px auto;
+/* Reset */
+*{
+    margin:0;
+    padding:0;
     box-sizing:border-box;
-    background: lightgreen;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
-    border: 1px solid #aaa;
+
+/* Body */
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#0f172a;
+
+    color:#f8fafc;
+
+    overflow-x:hidden;
 }
-button {
-    width: 100%;
-    padding: 10px;
-    background: #ff6600;
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+/* Background Image */
+.ig{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,0.82),rgba(0,0,0,0.88)),
+    url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    z-index:-1;
 }
-button:hover {
-    background: black;
+
+/* Content */
+.content{
+
+    position:relative;
+
+    z-index:10;
 }
-.success {
-    text-align: center;
-    background: black;
-    color: #ff6600;
-    padding: 8px;
-    border-radius: 5px;
+
+/* Header */
+h1{
+
+    text-align:center;
+
+    padding:28px;
+
+    font-size:42px;
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    90deg,
+    rgba(0,0,0,0.92),
+    rgba(15,23,42,0.92)
+    );
+
+    border-bottom:2px solid #d4af37;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.45);
 }
-@media(max-width:600Px){
+
+/* Navbar */
+.header-menu{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:35px;
+
+    padding:18px;
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.08);
+
+    flex-wrap:wrap;
+}
+
+/* Menu Items */
+.header-menu h3{
+
+    transition:0.3s ease;
+}
+
+/* Hover */
+.header-menu h3:hover{
+
+    transform:translateY(-4px);
+}
+
+/* Navbar Icons */
+.header-menu i{
+
+    color:#d4af37;
+
+    margin-right:8px;
+}
+
+/* Links */
+.header-menu a{
+
+    text-decoration:none;
+
+    color:#f8fafc;
+
+    font-size:17px;
+    font-weight:600;
+
+    transition:0.3s ease;
+}
+
+/* Link Hover */
+.header-menu a:hover{
+
+    color:#facc15;
+}
+
+/* Contact Container */
+.container{
+
+    width:92%;
+    max-width:520px;
+
+    margin:60px auto;
+
+    padding:40px 35px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,0.07);
+
+    backdrop-filter:blur(14px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    0 12px 35px rgba(0,0,0,0.35),
+    0 0 20px rgba(212,175,55,0.05);
+}
+
+/* Contact Heading */
+.container h2{
+
+    text-align:center;
+
+    font-size:34px;
+
+    margin-bottom:28px;
+
+    color:white;
+}
+
+/* Success Message */
+.success{
+
+    background:
+    linear-gradient(
+    135deg,
+    #d4af37,
+    #facc15
+    );
+
+    color:black;
+
+    text-align:center;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    margin-bottom:22px;
+
+    font-weight:700;
+
+    box-shadow:
+    0 8px 20px rgba(212,175,55,0.3);
+}
+
+/* Labels */
+label{
+
+    display:block;
+
+    margin-bottom:8px;
+    margin-top:18px;
+
+    color:#facc15;
+
+    font-size:15px;
+    font-weight:600;
+}
+
+/* Inputs & Textarea */
+input,
+textarea{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    font-size:15px;
+
+    transition:0.3s ease;
+
+    border:
+    1px solid rgba(255,255,255,0.06);
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder{
+
+    color:#d1d5db;
+}
+
+/* Focus Effect */
+input:focus,
+textarea:focus{
+
+    border-color:#d4af37;
+
+    box-shadow:
+    0 0 18px rgba(212,175,55,0.2);
+}
+
+/* Textarea */
+textarea{
+
+    resize:none;
+}
+
+/* Button */
+button{
+
+    width:100%;
+
+    margin-top:28px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #d4af37,
+    #facc15
+    );
+
+    color:black;
+
+    font-size:17px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 8px 25px rgba(212,175,55,0.35);
+}
+
+/* Button Hover */
+button:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.02);
+
+    background:
+    linear-gradient(
+    135deg,
+    #facc15,
+    #d4af37
+    );
+
+    box-shadow:
+    0 12px 35px rgba(250,204,21,0.4);
+}
+
+/* Mobile */
+@media(max-width:768px){
+
     h1{
-        font-size:22px;
-        padding:10px;
+
+        font-size:30px;
     }
-    .header-menu a{
-        font-size:16px;
+
+    .header-menu{
+
+        flex-direction:column;
+
+        gap:18px;
     }
+
     .container{
-        margin:2opx auto;
+
+        padding:30px 22px;
     }
-    input,textarea,button{
-        font-size:16px;
+
+    .container h2{
+
+        font-size:28px;
     }
 }
+
+/* Small Mobile */
+@media(max-width:480px){
+
+    h1{
+
+        font-size:26px;
+    }
+
+    .container h2{
+
+        font-size:24px;
+    }
+}
+
 </style>
 </head>
 
@@ -192,7 +438,7 @@ button:hover {
 
 <div class="header-menu">
     <h3><i class="fas fa-camera" ></i><a href="about.php">About</a></h3>
-    <h3><i class="fas fa-shopping-cart"></i><a href="order.php">Add Order</a></h3>
+    <!-- <h3><i class="fas fa-shopping-cart"></i><a href="order.php">Add Order</a></h3> -->
     <h3><i class="fas fa-store"></i><a href="shop.php">Shop</a></h3>
     <h3><i class="fas fa-user"></i><a href="contact.php">Contact</a></h3>
 </div>
