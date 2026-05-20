@@ -19,10 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $brand   = $_POST['brand'] ?? '';  
     $qty     = $_POST['qty'] ?? '';
 
-    $stmt = $conn->prepare("
-        INSERT INTO orders (customer_name, phone, email, address, name, price, brand, qty)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    ");
+   $stmt = $conn->prepare("
+    INSERT INTO orders 
+    (customer_name, phone, email, address, part_name, price, brand, qty)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+");
 
     if (!$stmt) {
         die("SQL ERROR: " . $conn->error);
