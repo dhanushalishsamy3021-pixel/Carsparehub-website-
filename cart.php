@@ -19,7 +19,7 @@ if (isset($_GET['from']) && $_GET['from'] === 'cart') {
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
     <title>Document</title>
-    <style>
+    <!-- <style>
         body{
             margin:0;
             font-family:Arial,sans-serif;
@@ -100,12 +100,190 @@ if (isset($_GET['from']) && $_GET['from'] === 'cart') {
         .cart-count:hover{
             color:black;
         }
-    </style>
+    </style> -->
+    <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    color:white;
+    min-height:100vh;
+}
+
+/* Header */
+.site-logo{
+    background:rgba(0,0,0,0.85);
+    backdrop-filter:blur(10px);
+    color:#f8fafc;
+    text-align:center;
+    padding:25px;
+    font-size:38px;
+    font-weight:700;
+    letter-spacing:2px;
+    border-bottom:2px solid #d4af37;
+    box-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+
+.site-logo i{
+    color:#d4af37;
+    margin-right:12px;
+}
+
+.site-logo span{
+    color:#ffffff;
+}
+
+/* Main Content */
+.content{
+    width:92%;
+    max-width:1300px;
+    margin:40px auto;
+}
+
+/* Product Card */
+.content div{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:30px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    transition:0.4s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.content div:hover{
+    transform:translateY(-8px) scale(1.01);
+    border-color:#d4af37;
+    box-shadow:0 15px 40px rgba(212,175,55,0.25);
+}
+
+/* Product Image */
+.content img{
+    width:170px;
+    height:170px;
+    object-fit:cover;
+    border-radius:16px;
+    border:3px solid #d4af37;
+    background:white;
+}
+
+/* Product Text */
+.content p{
+    font-size:18px;
+    line-height:1.8;
+    color:#f1f5f9;
+    font-weight:500;
+}
+
+/* Buttons */
+.content a{
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:600;
+    transition:0.3s;
+    display:inline-block;
+    letter-spacing:0.5px;
+}
+
+/* Remove Button */
+.content a[href*="delete"]{
+    background:#dc2626;
+    color:white;
+    border:1px solid transparent;
+}
+
+.content a[href*="delete"]:hover{
+    background:transparent;
+    border:1px solid #dc2626;
+    color:#dc2626;
+}
+
+/* Order Button */
+.order-btn{
+    background:linear-gradient(135deg,#d4af37,#facc15) !important;
+    color:black !important;
+    margin-left:12px;
+    font-weight:bold;
+    box-shadow:0 5px 18px rgba(212,175,55,0.4);
+}
+
+.order-btn:hover{
+    transform:scale(1.05);
+    background:linear-gradient(135deg,#facc15,#d4af37) !important;
+}
+
+/* Cart Button */
+a[href='cart.php']{
+    display:block;
+    width:240px;
+    margin:40px auto;
+    text-align:center;
+    background:linear-gradient(135deg,#111827,#1e293b);
+    color:#f8fafc;
+    padding:16px;
+    border-radius:14px;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+    border:1px solid #d4af37;
+    box-shadow:0 6px 18px rgba(0,0,0,0.4);
+    transition:0.3s;
+}
+
+a[href='cart.php']:hover{
+    background:linear-gradient(135deg,#1e293b,#334155);
+    transform:translateY(-3px);
+}
+
+/* HR Line */
+hr{
+    border:none;
+    height:1px;
+    background:rgba(255,255,255,0.1);
+    margin-top:20px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .content div{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .content img{
+        width:100%;
+        max-width:260px;
+        height:auto;
+    }
+
+    .order-btn{
+        margin-left:0;
+        margin-top:12px;
+    }
+
+    .site-logo{
+        font-size:28px;
+    }
+}
+
+</style>
 </head>
 <body>
 <h1 class="site-logo"><i class="fas fa-screwdriver-wrench"></i><span>CarSpareHub</span></h1>
-<h3><i class="fas fa-shopping-cart" style="color:white;"></i>
-<a href="order.php?part=Add Order" style="text-decoration:none; color:white;">Add Order</a></h3>
+<!-- <h3><i class="fas fa-shopping-cart" style="color:white;"></i>
+<a href="order.php?part=Add Order" style="text-decoration:none; color:white;">Add Order</a></h3> -->
 
 
 <div class="grid">
@@ -168,11 +346,7 @@ while ($row = $result->fetch_assoc()) {
     echo "<a href='cart.php?action=delete&id=" . $row['id'] . "'>Remove</a>";
     
     // echo '<a class="order-btn" href="order.php?from=cart&ts=' . time() . '">Add Order</a>';
-    echo '<a class="order-btn" href="order.php?from=cart
-&name=' . urlencode($row['name']) . '
-&price=' . $row['price'] . '
-&brand=' . urlencode($row['brand']) . '
-">Add Order</a>';
+    echo '<a class="order-btn" href="order.php?from=cart&name=' . urlencode($row['name']) . '&price=' . urlencode($row['price']) . '&brand=' . urlencode($row['brand']) . '">Add Order</a>';
     
  
     echo "</div><hr>";
