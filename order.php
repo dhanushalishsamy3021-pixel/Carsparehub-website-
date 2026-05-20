@@ -1,7 +1,7 @@
 <?php include "db.php"; ?>
 <?php
 $brand = $_GET['brand'] ?? '';
-$part_name = $_GET['name'] ?? '';
+$part_name = $_GET['name'] ?? $_GET['part_name'] ?? '';
 $price = $_GET['price'] ?? '';
 
 echo "<h2>Showing products for: " . strtoupper($brand) . "</h2>";
@@ -16,102 +16,230 @@ echo "<h2>Showing products for: " . strtoupper($brand) . "</h2>";
     <title>Order Now</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background:linear-gradient(#B296FF,#C1D2DC);
-            padding: 20px;
-        }
 
-        .order-box {
-            max-width: 450px;
-            margin: auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-select[name="brand"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 15px;
-    background-color: #fff;
-    appearance: none; 
-    cursor: pointer;
-    transition: 0.3s ease;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-select[name="brand"]:hover {
-    border-color: #ff6600;
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#0f172a;
+    min-height:100vh;
+    overflow-x:hidden;
+    color:white;
+    position:relative;
 }
 
-select[name="brand"]:focus {
-    outline: none;
-    border-color: #ff6600;
-    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+/* Background */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,0.82),rgba(0,0,0,0.86)),
+    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    z-index:-1;
 }
 
-
-        .order-box h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            background-color:black;
-            color:#ff6600;
-        }
-
-        label {
-            display: block;
-            margin-top: 12px;
-            font-weight: bold;
-        }
-
-        input, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 15px;
-        }
-        select[name="payment"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 15px;
-    background-color: #fff;
-    appearance: none; 
-    cursor: pointer;
-    transition: 0.3s ease;
+/* Top Brand */
+.brand-title{
+    text-align:center;
+    font-size:34px;
+    font-weight:700;
+    color:#ffffff;
+    margin-bottom:25px;
+    letter-spacing:1px;
 }
 
-select[name="payment"]:hover {
-    border-color: #ff6600;
+.brand-title span{
+    color:#d4af37;
 }
 
-select[name="payment"]:focus {
-    outline: none;
-    border-color: #ff6600;
-    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+/* Order Card */
+.order-box{
+
+    width:100%;
+    max-width:520px;
+
+    margin:50px auto;
+
+    background:rgba(255,255,255,0.06);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:
+    0 12px 35px rgba(0,0,0,0.45),
+    0 0 25px rgba(212,175,55,0.08);
 }
- 
 
-        button {
-            margin-top: 18px;
-            background: black;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
+/* Heading */
+.order-box h2{
 
-        button:hover {
-            background: #0056b3;
-        }
-    </style>
+    text-align:center;
+
+    font-size:32px;
+
+    margin-bottom:30px;
+
+    color:#ffffff;
+
+    letter-spacing:1px;
+}
+
+.order-box h2 span{
+    color:#d4af37;
+}
+
+/* Labels */
+label{
+
+    display:block;
+
+    margin-top:16px;
+    margin-bottom:8px;
+
+    font-size:15px;
+    font-weight:600;
+
+    color:#e2e8f0;
+}
+
+/* Inputs */
+input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:14px 15px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    background:rgba(255,255,255,0.07);
+
+    color:white;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:0.3s ease;
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder{
+    color:#cbd5e1;
+}
+
+/* Focus */
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:#d4af37;
+
+    box-shadow:0 0 15px rgba(212,175,55,0.22);
+
+    background:rgba(255,255,255,0.09);
+}
+
+/* Dropdown */
+select{
+    cursor:pointer;
+}
+
+/* Button */
+button{
+
+    width:100%;
+
+    margin-top:28px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#d4af37,#facc15);
+
+    color:black;
+
+    font-size:17px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.35s ease;
+
+    box-shadow:0 8px 24px rgba(212,175,55,0.25);
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+    background:linear-gradient(135deg,#facc15,#d4af37);
+
+    box-shadow:0 12px 28px rgba(250,204,21,0.35);
+}
+
+/* Small top heading */
+.top-show{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:600;
+}
+
+.top-show span{
+    color:#d4af37;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .order-box{
+        width:92%;
+        padding:28px 20px;
+    }
+
+    .order-box h2{
+        font-size:26px;
+    }
+
+    .brand-title{
+        font-size:26px;
+    }
+}
+
+</style>
 </head>
 <body>
 
